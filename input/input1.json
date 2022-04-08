@@ -1,0 +1,21 @@
+{
+	"name": "a",
+	"count": 2,
+	"items": [
+		{
+			"name": "x",
+			"count": 1,
+			"price": 1
+		},
+		{
+			"name": "y",
+			"count": 2,
+			"price": 2
+		},
+		{
+			"name": "z",
+			"count": 3,
+			"price": 3
+		}
+	]
+}

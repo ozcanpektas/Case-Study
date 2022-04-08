@@ -1,0 +1,48 @@
+{
+	"name": "a",
+	"count": 2,
+	"items": [
+		{
+			"name": "x",
+			"count": 1,
+			"items": [
+				{
+					"name": "x_1",
+					"count": 5,
+					"price": 1
+				},
+				{
+					"name": "x_2",
+					"count": 2,
+					"items": [
+						{
+							"name": "x_2_1",
+							"count": 1,
+							"price": 10
+						},
+						{
+							"name": "x_2_2",
+							"count": 2,
+							"price": 24
+						}
+					]
+				},
+				{
+					"name": "x_3",
+					"count": 3,
+					"price": 2
+				}
+			]
+		},
+		{
+			"name": "y",
+			"count": 2,
+			"price": 2
+		},
+		{
+			"name": "z",
+			"count": 3,
+			"price": 3
+		}
+	]
+}
