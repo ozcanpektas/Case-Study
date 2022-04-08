@@ -4,7 +4,9 @@ import urllib.request
 import urllib.error
 from json.decoder import JSONDecodeError
 
+# Node class for the storing json elements
 class Node:
+    #Constructor
     def __init__(self, name, parent, count, price, childs, cost):
         self.name = name
         self.parent = parent
@@ -13,9 +15,9 @@ class Node:
         self.childs = childs
         self.cost = cost
 
+    # Constructs the structure, put childs of parent node into its child array
     def construct(self, childs):
         for key in childs:
-            print(key["name"])
             childNode = Node("", None, 0, 0, [], 0)
             childNode.name = key["name"]
             childNode.count = key["count"]
@@ -29,6 +31,7 @@ class Node:
                 childNode.construct(childs)
                 self.childs.append(childNode)
 
+    # Utility function for printing whole structure
     def printStructure(root):
         for key in root.childs:
             print(
@@ -41,6 +44,7 @@ class Node:
             if(key.parent != []):
                 key.printStructure()
 
+    # Utility function for printing root node
     def printRoot(root):
         print(
             "Root Node: "
@@ -48,6 +52,15 @@ class Node:
             " Count:", root.count, ","
             " Cost:", root.cost
         )
+    
+    # Computes the cost of root node recursively, by calculating its childs costs
+    def calculateCost(root):
+        for key in root.childs:
+            if(key.childs == []):
+                key.cost = key.count*key.price
+            else:
+                key.calculateCost()
+            root.cost += key.cost*root.count  
 
 # Reads input from url
 def readInput():
@@ -73,6 +86,7 @@ def readInput():
             print("Something happened! Error code"), err.code
             return
 
+# main function
 def main():
     while(1):
         input = readInput()
@@ -81,7 +95,8 @@ def main():
         root = Node(input["name"], None, input["count"], 0, [], 0)
         childs = list(input.values())[2]
         root.construct(childs)
+        root.calculateCost()
         root.printRoot()
-        root.printStructure()
+        
 if __name__ == "__main__":
     main()
