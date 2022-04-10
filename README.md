@@ -5,7 +5,7 @@ This is a case study for the job recruitment of the App Samurai.
 
 ```
 $ Go to your project folder.
-$ And run the following command.
+$ Run the following command.
 $ python3 main.py
 $ Enter the url.
 ```
